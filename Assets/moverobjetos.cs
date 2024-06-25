@@ -36,6 +36,10 @@ public class moverobjetos : MonoBehaviour
             }
             objetosborrados();
             activarobjetos(valor);
+            if (valor < 0)
+            {
+                valor++;
+            }
         }
     }
     void objetosborrados()
