@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#17241e" />
+    <meta name="description" content="Proyecto final: modelos creados en Blender por Gael Moszenberg y sus compañeros, reunidos en una galería 3D interactiva." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="./src/style.css" />
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"
+        }
+      }
+    </script>
+    <title>Una idea, cuatro formas | Proyecto final 3D</title>
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="topbar">
+        <a class="wordmark" href="#inicio" aria-label="Archivo 3D, inicio">
+          <span class="wordmark-mark" aria-hidden="true">4</span>
+          <span>BLENDER <span class="wordmark-light">/ 3D</span></span>
+        </a>
+        <span class="topbar-note">PROYECTO FINAL <span class="topbar-divider">/</span> DISEÑO 3D</span>
+        <a class="topbar-link" href="#coleccion">VER COLECCIÓN <span aria-hidden="true">↘</span></a>
+      </header>
+
+      <main id="inicio">
+        <section class="hero" aria-labelledby="page-title">
+          <div class="hero-copy">
+            <div class="eyebrow"><span class="eyebrow-line"></span> ENTREGA FINAL <span class="eyebrow-divider">/</span> BLENDER + 3D</div>
+            <h1 id="page-title">Una idea,<br />cuatro <span>formas.</span></h1>
+            <p class="hero-description">Para este proyecto final, diseñé modelos en Blender junto con mis compañeros. Los reunimos en una escena interactiva para presentar el resultado y explorar cada pieza en 3D.</p>
+            <a class="hero-cta" href="#coleccion"><span>Explorar los modelos</span><span class="cta-arrow" aria-hidden="true">↓</span></a>
+            <div class="hero-credit"><span class="credit-rule"></span><span>GAEL MOSZENBERG<br />CON SUS COMPAÑEROS</span></div>
+          </div>
+
+          <div class="hero-mark" aria-hidden="true">
+            <span class="hero-wordmark">BLENDER</span>
+            <span class="hero-mark-caption"><i></i> PIEZAS <i></i> 3D <i></i> EQUIPO</span>
+          </div>
+
+          <div class="hero-baseline"><span>MODELOS CREADOS EN BLENDER</span><span>04 PIEZAS</span><span>HECHO EN EQUIPO <b>✳</b></span></div>
+        </section>
+
+        <section class="collection" id="coleccion" aria-labelledby="collection-title">
+          <div class="collection-heading">
+            <div>
+              <div class="eyebrow"><span class="eyebrow-line"></span> EL TRABAJO DEL EQUIPO</div>
+              <h2 id="collection-title">La colección<span class="heading-period">.</span></h2>
+            </div>
+            <p>Cuatro piezas creadas por<br />cuatro miradas distintas.</p>
+          </div>
+
+          <div class="gallery" aria-label="Galería de modelos 3D">
+            <div class="stage" id="stage" aria-label="Visor interactivo del modelo 3D">
+              <div class="stage-grid" aria-hidden="true"></div>
+              <div class="stage-index" aria-hidden="true">ESTUDIO <span>3D</span></div>
+              <div class="stage-coordinate" aria-hidden="true">FIG. <span id="stage-number">01</span> <span class="stage-total">/ 04</span></div>
+              <div class="stage-loading" id="stage-loading" aria-hidden="true"><span></span></div>
+              <div class="stage-error" id="stage-error" hidden>No se pudo cargar este modelo.</div>
+              <div class="stage-hint"><span class="drag-symbol" aria-hidden="true">↻</span> ARRASTRÁ PARA GIRAR</div>
+              <div class="stage-controls">
+                <button id="reset-view" class="reset-button" type="button" aria-label="Restablecer vista" title="Restablecer vista">
+                  <span aria-hidden="true">↺</span>
+                </button>
+              </div>
+              <canvas id="model-canvas" aria-label="Modelo 3D interactivo"></canvas>
+            </div>
+
+            <div class="collection-list">
+              <div class="model-info">
+                <div class="info-topline">
+                  <span id="model-count" class="model-count">01 <span>/ 04</span></span>
+                  <span class="model-type">PIEZA SELECCIONADA</span>
+                </div>
+                <div class="model-heading">
+                  <span class="heading-rule" aria-hidden="true"></span>
+                  <h3 id="model-name">Cargando...</h3>
+                </div>
+                <p class="model-caption">Diseñado en Blender.<br />Presentado en una escena interactiva.</p>
+
+                <div class="selection-controls">
+                  <button class="text-button" id="previous-model" type="button" aria-label="Modelo anterior">
+                    <span aria-hidden="true">←</span> ANTERIOR
+                  </button>
+                  <button class="text-button" id="next-model" type="button" aria-label="Modelo siguiente">
+                    SIGUIENTE <span aria-hidden="true">→</span>
+                  </button>
+                </div>
+                <p id="load-status" class="load-status" role="status" aria-live="polite">Preparando escena...</p>
+              </div>
+
+              <div class="model-selector" id="model-selector" role="group" aria-label="Elegir modelo"></div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <a class="footer-mark" href="#inicio">BLENDER <span>/</span> PROYECTO FINAL</a>
+        <span>GAEL MOSZENBERG + EQUIPO</span>
+        <a class="back-top" href="#inicio" aria-label="Volver al inicio">↑</a>
+      </footer>
+    </div>
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
